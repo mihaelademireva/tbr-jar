@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f1e7">
+  <title>TBR Jar — Pick Your Next Read</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="site-header">
+    <a class="brand" href="#">
+      <span class="brand-mark">✦</span>
+      <span>TBR <em>Jar</em></span>
+    </a>
+    <div class="header-actions">
+      <button class="ghost-btn" id="clearBtn" title="Clear all prompts">Clear all</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR NEXT BOOK AWAITS</p>
+        <h1>Let the jar<br><span>choose for you.</span></h1>
+        <p class="intro">Give the jar a shake, and let a little randomness decide what you read next.</p>
+        <div class="hero-stats">
+          <div><strong id="bookCount">0</strong><span>prompts in jar</span></div>
+        </div>
+      </div>
+
+      <div class="jar-stage">
+        <div class="spark spark-1">✦</div><div class="spark spark-2">·</div><div class="spark spark-3">✦</div>
+        <div class="jar-wrap">
+          <img class="jar-image" src="tbr_jar.png" alt="TBR jar">
+        </div>
+        <button class="draw-btn" id="drawBtn">
+          <span class="draw-icon">↻</span>
+          <span>Shake the jar</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-head">
+        <div>
+          <h2>Prompts in the jar <span id="queueCount">0</span></h2>
+        </div>
+      </div>
+
+      <form class="add-form" id="addForm">
+        <div class="input-wrap">
+          <span>＋</span>
+          <input id="bookInput" type="text" maxlength="100" placeholder="Add a book to your jar…" autocomplete="off" required>
+        </div>
+        <button class="primary-btn" type="submit">Add a prompt</button>
+      </form>
+
+      <div class="prompt-grid" id="bookGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📖</div>
+        <h3>Your jar is waiting.</h3>
+        <p>Add a few jar above, then shake the jar when you're ready to let fate decide.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="resultModal" aria-hidden="true">
+    <div class="result-modal">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <p class="eyebrow">THE JAR HAS SPOKEN</p>
+      <div class="result-icon">✦</div>
+      <p class="result-kicker">Your next read is</p>
+      <h2 id="resultTitle"></h2>
+
+      <div class="modal-actions">
+        <button class="primary-btn" id="againBtn">Pick again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
